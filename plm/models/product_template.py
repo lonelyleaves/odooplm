@@ -78,13 +78,8 @@ class ProductTemplate(models.Model):
                                          default=True,
                                          compute=lambda self: self._compute_eng_code_editable()
                                          )
-
-    linkeddocuments = fields.Many2many('ir.attachment',
-                                       'plm_component_document_rel',
-                                       'component_id',
-                                       'document_id',
-                                       _('Linked Docs'),
-                                       ondelete='cascade')
+    kit_bom = fields.Boolean(_('KIT Bom Type'))
+    
     def unlinkCheckBomRelations(self):
 
         def print_where_struct(self, where_struct):
